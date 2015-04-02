@@ -14,11 +14,11 @@ def damage
 	pokemon.health = pokemon.health - 10
 	if pokemon.health <= 0
 		flash[:death] = pokemon.name
-		flash[:death] << "has died!"
+		flash[:death] << " has died!"
 		pokemon.destroy
 	else
 		flash[:damage] = pokemon.name
-		flash[:damage] << "took damage!"
+		flash[:damage] << " took damage!"
 		pokemon.save
 	end
 	redirect_to trainer_path(params[:trainer]) 				# controller will go to prefix "trainer" and extract id from params[:trainer]
