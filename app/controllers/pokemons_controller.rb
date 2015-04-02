@@ -4,6 +4,8 @@ def capture
 	pokemon = Pokemon.find(params[:id])
 	pokemon.trainer_id = current_trainer.id
 	pokemon.save
+	flash[:pokemoncaught] = "You Caught "
+	flash[:pokemoncaught] << pokemon.name
 	redirect_to root_path
 end
 
@@ -11,8 +13,12 @@ def damage
 	pokemon = Pokemon.find(params[:poke_id])
 	pokemon.health = pokemon.health - 10
 	if pokemon.health <= 0
+		flash[:death] = pokemon.name
+		flash[:death] << "has died!"
 		pokemon.destroy
 	else
+		flash[:damage] = pokemon.name
+		flash[:damage] << "took damage!"
 		pokemon.save
 	end
 	redirect_to trainer_path(params[:trainer]) 				# controller will go to prefix "trainer" and extract id from params[:trainer]

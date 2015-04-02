@@ -1,9 +1,20 @@
 <h3>Welcome to PokePortal</h3>
 <p><%= link_to 'Trainers:', trainers_path %> <%= Trainer.count %> registered</p>
 
+<!--
+<% if flash[:pokemoncaught] %>
+	<p> You caught <%= flash[:pokemoncaught] %> </p>
+<% end %>
+-->
+
 <% if @pokemon and current_trainer %>
   <p> A wild <%= @pokemon.name %> has appeared!</p>
   <!-- REPLACE THIS LINE BELOW -->
 	<%= button_to "Throw a Pokeball!", capture_path(id: @pokemon), :class => "button medium", :method => :patch %>
+<% end %>
+
+<% if current_trainer %>
 	<%= button_to "Create a Pokemon!", new_path, :class => "button medium", :method => :get %>
 <% end %>
+
+
