@@ -1,0 +1,10 @@
+<h3> Create A New Pokemon </h3>
+<br>
+<% if flash[:error] %> 				<!-- check and display flash[:error] if exists -->
+	<p style="color:red"> <%= flash[:error].first %> </p>
+<% end %>
+
+<%= simple_form_for @pokemon do |f| %>
+	<%= f.input :name %> 						<!-- knows its filling out the pokemon.name field -->
+	<%= f.button :submit %>
+<% end %>

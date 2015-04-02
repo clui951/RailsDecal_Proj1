@@ -12,6 +12,9 @@ gem 'devise'
 gem 'foundation-rails'
 gem 'simple_form'
 
+# added annotate
+gem 'annotate'
+
 group :development do
   gem 'sqlite3'
   gem 'better_errors'
